@@ -1,0 +1,29 @@
+<h2>Lista de blogs</h2>
+<!--<div class="post-list">
+    <app-post-card 
+        *ngFor="let post of posts" 
+        [postData]="post" 
+        (deletePost)="deletePost($event)">
+    </app-post-card>
+</div>-->
+<div>
+    <input type="text" [(ngModel)]="newPostTitle" placeholder="Titulo del blog" />
+    <textarea [(ngModel)]="newPostContent" placeholder="Contenido del post"></textarea>
+    <button (click)="addPost()">Añadir Blog</button>
+</div>
+
+<hr />
+
+<div *ngFor="let post of posts">
+    <div *ngIf="editandoPostId === post.id">
+        <input type="text" [(ngModel)]="editTitle" required />
+        <textarea [(ngModel)]="editContent" required></textarea>
+        <button (click)="guardarEdit()">Guardar</button>
+        <button (click)="cancelarEdit()">Cancelar</button>
+    </div>
+    <app-post-card *ngIf="editandoPostId !== post.id" 
+        [postData]="post" 
+        (deletePost)="deletePost(post.id)" 
+        (editPost)="empezarEdit(post)">
+    </app-post-card>
+</div>
