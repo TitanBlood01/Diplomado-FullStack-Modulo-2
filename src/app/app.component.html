@@ -1,2 +1,20 @@
-<h1>{{ title }}</h1>
-<router-outlet></router-outlet>
+<div class="app-container">
+    <header>
+      <h1>{{ title }}</h1>
+      <nav>
+        <ul>
+          <li><a routerLink="/posts" routerLinkActive="active">Posts</a></li>
+          <li><a routerLink="/gallery" routerLinkActive="active">Galería (Sin Optimizar)</a></li>
+          <li><a routerLink="/gallery-optimized" routerLinkActive="active">Galería (Optimizada)</a></li>
+        </ul>
+      </nav>
+    </header>
+  
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  
+    <footer>
+      <p>© 2025 Blog Personal - Proyecto de Diplomado</p>
+    </footer>
+  </div>
